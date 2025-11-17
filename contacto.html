@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Lechuza Soluciones</title>
+  <link rel="stylesheet" href="contacto.css" />
+  <link rel="stylesheet" href="normalice.css" />
+  <link rel="icon" href="img/icon.ico" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0CY8BFRRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y0CY8BFRRR');
+</script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo técnico" />
+        <a href="index.html">Lechuza Soluciones S.A.</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Servicios.html">Servicios</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="SobreNosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h1>Contáctanos</h1>
+    <p>¿Tienes alguna duda o proyecto en mente? Escríbenos y con gusto te ayudaremos.</p>
+  </section>
+
+  <section class="contact-grid">
+    <form class="formulario" id="contactForm">
+      <h2>Envíanos un mensaje</h2>
+      <div class="form-group">
+        <input type="text" id="nombre" placeholder="Nombre completo" required />
+        <input type="email" id="correo" placeholder="Correo electrónico" required />
+      </div>
+      <input type="tel" id="telefono" placeholder="Teléfono" required />
+      <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit" id="submitBtn">Enviar mensaje</button>
+      <p id="formMsg" class="form-msg"></p>
+    </form>
+
+    <div class="info-box">
+      <h2>Información de contacto</h2>
+      <div class="info-item">
+        <h4>📍 Dirección</h4>
+        <p>Heredia, Costa Rica</p>
+      </div>
+      <div class="info-item">
+        <h4>📧 Correo</h4>
+        <p>lechuzasoluciones@gmail.com</p>
+      </div>
+      <div class="info-item">
+        <h4>📞 Teléfono</h4>
+        <p>(+506) 76231 0643</p>
+      </div>
+      <div class="social">
+  <a href="https://facebook.com" target="_blank" class="icon">Facebook</a>
+  <a href="https://instagram.com" target="_blank" class="icon">Instagram</a>
+  <a href="https://wa.me/+506762310643" target="_blank" class="icon">WhatsApp</a>
+</div>
+    </div>
+  </section>
+
+  <section class="mapa slide-up">
+    <h2>Ubicación</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d980.8998585632904!2d-84.02444217216514!3d10.453326273988317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa09be70a4c9a0f%3A0x95886c6a5629a0a3!2sHeredia%2C%20Puerto%20Viejo%2C%20Barrio%20La%20Guaria!5e0!3m2!1ses-419!2scr!4v1762546343857!5m2!1ses-419!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>© 2025 Lechuza Soluciones - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const telefono = document.getElementById("telefono").value;
+      const mensaje = document.getElementById("mensaje").value;
+      const formMsg = document.getElementById("formMsg");
+      const btn = document.getElementById("submitBtn");
+
+      btn.disabled = true;
+      formMsg.textContent = "📨 Enviando mensaje...";
+      formMsg.style.color = "#333";
+
+      fetch("guardar_contacto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `nombre=${encodeURIComponent(nombre)}&correo=${encodeURIComponent(correo)}&telefono=${encodeURIComponent(telefono)}&mensaje=${encodeURIComponent(mensaje)}`
+      })
+      .then(res => res.text())
+      .then(data => {
+        formMsg.textContent = data;
+        formMsg.style.color = "green";
+        document.getElementById("contactForm").reset();
+      })
+      .catch(err => {
+        console.error(err);
+        formMsg.textContent = "❌ Error al enviar el mensaje.";
+        formMsg.style.color = "red";
+      })
+      .finally(() => btn.disabled = false);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotización - Lechuza Soluciones S.A.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="formulario.css">
+  <link rel="stylesheet" href="normalice.css">
+  <link rel="icon" href="img/icon.ico" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0CY8BFRRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y0CY8BFRRR');
+</script>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo técnico" />
+        <a href="index.html">Lechuza Soluciones S.A.</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Servicios.html">Servicios</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="SobreNosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h1>Cotización</h1>
+    <p>Solicita tu presupuesto personalizado fácilmente.</p>
+  </section>
+
+  <section class="form-section">
+    <form id="cotizacionForm" class="cotizacion-form" action="procesar_cotizacion.php" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre / Empresa</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label for="cedula">Cédula</label>
+          <input type="text" id="cedula" name="cedula" required>
+        </div>
+        <div>
+          <label for="tel">Teléfono</label>
+          <input type="tel" id="tel" name="tel" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="servicio">Servicio</label>
+        <select id="servicio" name="servicio" required>
+          <option value="">Seleccione un servicio</option>
+          <option>Reparación de computadoras - Diagnóstico y solución de problemas técnicos</option>
+          <option>Venta de partes y componentes - Hardware y accesorios especializados</option>
+          <option>Instalación de Microsoft Office - Configuración y soporte de software</option>
+          <option>Sistemas de videovigilancia - Venta e instalación de cámaras de seguridad</option>
+          <option>Sistemas de alarmas - Implementación de seguridad perimetral</option>
+          <option>Servicios de respuesta armada - Monitoreo y respuesta de seguridad 24/7</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="detalles">Especificaciones / Requerimientos</label>
+        <textarea id="detalles" name="detalles" rows="5" required></textarea>
+      </div>
+
+      <button type="submit">Enviar</button>
+      <p id="msg"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Lechuza Soluciones S.A. | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="cotizacion.js"></script>
+</body>
+</html>

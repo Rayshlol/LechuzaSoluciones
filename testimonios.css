@@ -1,0 +1,226 @@
+:root {
+  --azul-oscuro: #1E3A8A;
+  --azul-claro: #3B82F6;
+  --gris-claro: #E5E7EB;
+  --blanco: #FFFFFF;
+  --negro: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--negro);
+}
+
+.main-header {
+  background-color: var(--azul-claro);
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.main-header .container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.logo a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: #dbeafe;
+  border-bottom: 2px solid var(--blanco);
+}
+
+.banner {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 80px 20px 100px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.banner h1 {
+  font-size: 2.5em;
+  font-family: Poppins, sans-serif;
+  margin-bottom: 15px;
+}
+
+.banner p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.btn-contacto {
+  background-color: var(--azul-claro);
+  color: var(--blanco);
+  padding: 12px 25px;
+  border-radius: 8px;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: .3s;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.btn-contacto:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.testimonios {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonios h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--blanco);
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: relative;
+  transition: .3s;
+  animation: fadeInUp .8s ease-out forwards;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.inicial {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: var(--azul-claro);
+  color: var(--blanco);
+  padding: 10px 14px;
+  font-size: 1.2em;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(59,130,246,0.3);
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: var(--azul-oscuro);
+  font-family: 'Poppins', sans-serif;
+}
+
+.card p {
+  line-height: 1.6;
+}
+
+.main-footer {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.main-footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 992px) {
+  .banner h1 { font-size: 2.2em; }
+  .banner p { font-size: 1.1em; }
+  .testimonios h2 { font-size: 2.5em; }
+}
+
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logo { margin-bottom: 10px; }
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .banner {
+    padding: 60px 20px 80px;
+  }
+  .banner h1 { font-size: 2em; }
+  .banner p { font-size: 1em; }
+  .grid { gap: 20px; }
+}
+
+@media (max-width: 600px) {
+  .testimonios h2 { font-size: 2.2em; }
+  .card { padding: 22px; }
+  .btn-contacto { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .logo img { width: 55px; }
+  .logo a { font-size: 1.3em; }
+  .banner h1 { font-size: 1.7em; }
+  .banner p { font-size: 0.95em; }
+  .card { padding: 18px; }
+  .grid { gap: 15px; }
+}
